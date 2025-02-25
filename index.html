@@ -171,8 +171,21 @@
             output.click();
             showOutput.classList.add('show');
             inputBox.classList.add('hide');
-            name.innerText = inputData[0].value;
-            crushName.innerText = inputData[1].value;
+            name.innerText = (inputData[0].value).toUpperCase();
+            crushName.innerText = (inputData[1].value).toUpperCase();
+            let nameAdd = 0;
+            let curshnameAdd = 0;
+            for (let i = 0; i < (inputData[0].value).length; i++) {
+                nameAdd += ((inputData[0].value).toUpperCase()[i]).charCodeAt(0);
+            }
+            for (let i = 0; i < (inputData[1].value).length; i++) {
+                curshnameAdd += ((inputData[1].value).toUpperCase()[i]).charCodeAt(0);
+            }
+            if (nameAdd - curshnameAdd == 156 || nameAdd - curshnameAdd == -156) {
+                do
+                    num = ((Math.random() * 100)).toFixed(2);
+                while (num <= 94);
+            }
             console.log(num);
             if (num > 80)
                 emoji.innerText = '❤️💝❤️';
